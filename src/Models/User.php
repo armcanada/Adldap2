@@ -26,6 +26,11 @@ class User extends Entry implements Authenticatable
     /** @var callable|null */
     private static $passwordStrategy;
 
+    public function getAuthPasswordName()
+    {
+        return config('services.ldap.password_column', 'password');
+    }
+
     /**
      * Password will be processed using given callback before saving.
      *
